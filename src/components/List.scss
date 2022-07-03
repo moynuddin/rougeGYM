@@ -1,0 +1,26 @@
+.exercise-title {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 600;
+  padding: 20px;
+  margin-top: 10px;
+  @media (min-width: 769px) {
+    font-size: 40px;
+    margin-top: 0;
+  }
+}
+
+.exercise-card {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  padding: 20px 10px;
+  gap: 20px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}

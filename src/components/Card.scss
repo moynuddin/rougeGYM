@@ -1,0 +1,25 @@
+.card-container {
+  width: 420px;
+  text-align: center;
+  padding: 10px;
+  background: #eeeff3;
+  border-radius: 5px;
+  box-shadow: inset 4px -4px 20px #05d4b3;
+  & .card {
+    padding-bottom: 20px;
+    & img {
+      width: 350px;
+      @media (min-width: 769px) {
+        width: 400px;
+      }
+    }
+    & .exercise-name {
+      padding: 15px 0;
+      text-transform: capitalize;
+      font-size: 20px;
+    }
+    & .css-w4z10b-MuiStack-root {
+      justify-content: space-evenly;
+    }
+  }
+}
