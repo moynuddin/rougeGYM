@@ -6,12 +6,12 @@ import "aos/dist/aos.css";
 import "../components/Card.scss";
 const Card = ({ exercise }) => {
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      once: true,
+    });
     AOS.refresh();
   });
-  const handleCard = (id) => {
-    console.log("Exercise Details", exercise.id);
-  };
+  const handleCard = (id) => {};
   return (
     <div
       className="card-container"

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import Typed from "typed.js";
 import AOS from "aos";
@@ -7,9 +7,12 @@ import "../components/Header.scss";
 import banner from "../assets/images/banner.jpg";
 const Header = () => {
   const brand = useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      once: true,
+    });
     AOS.refresh();
   }, []);
 
@@ -31,6 +34,10 @@ const Header = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className="wrapper">
       <div className="container">
@@ -41,9 +48,18 @@ const Header = () => {
             <li onClick={handleExercise}>Exercise</li>
           </ul>
         </nav>
-        <div className="menu">
+        <div className="menu" onClick={toggleMenu}>
           <FaBars />
         </div>
+        {isOpen ? (
+          <div className="menu-items">
+            <p onClick={handleHome}>Home</p>
+            <p onClick={handleExercise}>Exercise</p>
+          </div>
+        ) : (
+          ""
+        )}
+
         <div
           className="img-wrapper"
           data-aos="fade-left"

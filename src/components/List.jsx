@@ -37,7 +37,9 @@ const List = () => {
   }, []);
 
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      once: true,
+    });
     AOS.refresh();
   });
 
@@ -55,6 +57,7 @@ const List = () => {
           : searchedExercise?.map((data) => (
               <Card exercise={data} key={data?.id} />
             ))}
+        {/* {currentExercise || searchedExercise ? "" : <h1>No result found</h1>} */}
       </div>
       <div className="pagination">
         <Stack spacing={2}>

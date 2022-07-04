@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
-import AOS from "aos";
-import "aos/dist/aos.css";
+
 import {
   FaLongArrowAltLeft,
   FaLongArrowAltRight,
@@ -10,11 +9,15 @@ import {
 import { specificExercise } from "../Utility/helper";
 import "../components/Category.scss";
 import { getExercise } from "../exerciseDB/exercise";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Category = (props) => {
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      once: true,
+    });
     AOS.refresh();
-  });
+  }, []);
 
   const LeftArrow = () => {
     const { isFirstItemVisible, scrollPrev } =
@@ -58,6 +61,10 @@ const Category = (props) => {
     }
   };
 
+  const HandleReset = (e) => {
+    e.target.value = "";
+  };
+
   const handleExercise = async (name) => {
     const bodyPartExercise = name;
     const { data } = await getExercise();
@@ -65,8 +72,10 @@ const Category = (props) => {
       e.bodyPart.toLowerCase().includes(bodyPartExercise)
     );
     props.sendToParent(categoryData);
-    window.scrollTo({ top: 1000, behavior: "smooth" });
+
+    await window.scrollTo({ top: 1200, behavior: "smooth" });
   };
+
   return (
     <div>
       <div
@@ -80,6 +89,7 @@ const Category = (props) => {
           type="search"
           placeholder="Search exercises..."
           onKeyUp={handleSearch}
+          onBlur={HandleReset}
         />
       </div>
 

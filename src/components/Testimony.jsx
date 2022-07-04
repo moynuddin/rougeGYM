@@ -16,7 +16,9 @@ import iconEleven from "../assets/images/icon-11.jpeg";
 import iconTwelve from "../assets/images/icon-12.jpeg";
 const Testimony = () => {
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      once: true,
+    });
     AOS.refresh();
   });
   return (
