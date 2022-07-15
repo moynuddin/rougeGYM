@@ -27,7 +27,7 @@
       border: none;
       outline: none;
       border-radius: 5px;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(207 203 203 / 50%);
       color: #fff;
       font-size: 16px;
       padding: 10px;
@@ -61,5 +61,5 @@
 }
 
 ::placeholder {
-  color: #fff;
+  color: rgb(222, 8, 8);
 }

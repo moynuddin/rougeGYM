@@ -11,7 +11,10 @@ const Card = ({ exercise }) => {
     });
     AOS.refresh();
   });
-  const handleCard = (id) => {};
+
+  function handleCard(exercise) {
+    console.log("exercise id", exercise);
+  }
   return (
     <div
       className="card-container"
@@ -19,7 +22,7 @@ const Card = ({ exercise }) => {
       data-aos-delay="500"
       data-aos-duration="1000"
     >
-      <div className="card" onClick={handleCard}>
+      <div className="card" onClick={() => handleCard(exercise)}>
         <img src={exercise?.gifUrl} alt={exercise?.bodyPart} />
         <h2 className="exercise-name">{exercise?.name}</h2>
         <Stack direction="row" spacing={1}>
