@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import Typed from "typed.js";
+import { FaLinkedin, FaGithubSquare } from "react-icons/fa";
 import "../components/Footer.scss";
 
 const Footer = () => {
@@ -22,6 +23,19 @@ const Footer = () => {
       <div className="footer">
         <div className="typography">
           <p ref={el}></p>
+        </div>
+        <div className="socials">
+          <div className="icons-wrapper">
+            <div className="linkedin">
+              <FaLinkedin />
+            </div>
+            <div className="github">
+              <FaGithubSquare />
+            </div>
+          </div>
+          <div className="copy-right">
+            <p>&copy; All Rights Reversed.</p>
+          </div>
         </div>
       </div>
     </>

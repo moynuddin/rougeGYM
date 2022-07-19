@@ -1,11 +1,14 @@
 import React, { useRef, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import Typed from "typed.js";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../components/Header.scss";
 import banner from "../assets/images/banner.jpg";
-const Header = () => {
+const Header = (props) => {
+  const navigate = useNavigate();
+
   const brand = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -31,7 +34,7 @@ const Header = () => {
     window.scrollTo({ top: 1200, behavior: "smooth" });
   };
   const handleHome = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    navigate("/");
   };
 
   const toggleMenu = () => {
@@ -59,26 +62,33 @@ const Header = () => {
         ) : (
           ""
         )}
-
-        <div
-          className="img-wrapper"
-          data-aos="fade-left"
-          data-aos-delay="200"
-          data-aos-duration="1000"
-        >
-          <img src={banner} alt="banner" />
+        {!props.hide ? (
+          <div
+            className="img-wrapper"
+            data-aos="fade-left"
+            data-aos-delay="200"
+            data-aos-duration="1000"
+          >
+            <img src={banner} alt="banner" />
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
+      {!props.hide ? (
+        <div className="banner-container">
+          <h1
+            className="heading"
+            data-aos="fade-right"
+            data-aos-delay="200"
+            data-aos-duration="1000"
+          >
+            It's a slow process. But quitting won't speed it up.
+          </h1>
         </div>
-      </div>
-      <div className="banner-container">
-        <h1
-          className="heading"
-          data-aos="fade-right"
-          data-aos-delay="200"
-          data-aos-duration="1000"
-        >
-          It's a slow process. But quitting won't speed it up.
-        </h1>
-      </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

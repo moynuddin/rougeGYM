@@ -1,0 +1,57 @@
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 769px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  & img {
+    width: 50%;
+  }
+  & .exercise-info {
+    width: 100%;
+    @media (min-width: 769px) {
+      width: 50%;
+    }
+    & h1 {
+      padding: 20px;
+      text-align: center;
+      font-size: 27px;
+      @media (min-width: 769px) {
+        padding: 40px 40px 40px 65px;
+        font-size: 40px;
+        text-align: left;
+      }
+    }
+    & .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      font-size: 25px;
+      padding: 30px;
+      justify-items: center;
+      gap: 30px 0;
+
+      @media (min-width: 769px) {
+        padding: 40px 40px 40px 0;
+      }
+      & .icons {
+        width: 35%;
+        background: bisque;
+        padding: 10px;
+        border-radius: 10px;
+      }
+      & p {
+        padding: 10px;
+        font-weight: 600;
+        font-size: 15px;
+        @media (min-width: 769px) {
+          padding: 15px 15px 15px 0;
+          font-size: 21px;
+        }
+      }
+    }
+  }
+}

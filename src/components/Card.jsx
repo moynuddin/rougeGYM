@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../components/Card.scss";
 const Card = ({ exercise }) => {
+  const navigate = useNavigate();
   useEffect(() => {
     AOS.init({
       once: true,
@@ -13,7 +15,7 @@ const Card = ({ exercise }) => {
   });
 
   function handleCard(exercise) {
-    console.log("exercise id", exercise);
+    navigate(`details/${exercise.id}`);
   }
   return (
     <div

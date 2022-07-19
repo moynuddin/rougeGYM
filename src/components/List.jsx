@@ -29,7 +29,7 @@ const List = () => {
     window.scrollTo({ top: 1200, behavior: "smooth" });
   };
   useEffect(() => {
-    getExercise(BASE_URL)
+    getExercise(`${BASE_URL}/exercises`)
       .then((res) => {
         setList(res.data);
       })

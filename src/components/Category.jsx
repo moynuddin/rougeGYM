@@ -8,7 +8,7 @@ import {
 } from "react-icons/fa";
 import { specificExercise } from "../Utility/helper";
 import "../components/Category.scss";
-import { getExercise } from "../exerciseDB/exercise";
+import { BASE_URL, getExercise } from "../exerciseDB/exercise";
 import AOS from "aos";
 import "aos/dist/aos.css";
 const Category = (props) => {
@@ -49,7 +49,7 @@ const Category = (props) => {
   const handleSearch = async (e) => {
     const searchInput = e.target.value;
     if (e.keyCode === 13) {
-      const { data } = await getExercise();
+      const { data } = await getExercise(`${BASE_URL}/exercises`);
       const filteredData = data.filter(
         (exe) =>
           exe.bodyPart.toLowerCase().includes(searchInput) ||
@@ -67,7 +67,7 @@ const Category = (props) => {
 
   const handleExercise = async (name) => {
     const bodyPartExercise = name;
-    const { data } = await getExercise();
+    const { data } = await getExercise(`${BASE_URL}/exercises`);
     const categoryData = data.filter((e) =>
       e.bodyPart.toLowerCase().includes(bodyPartExercise)
     );

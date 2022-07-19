@@ -1,9 +1,14 @@
 import "./App.scss";
+import { Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
+import Detail from "./Pages/Detail";
 function App() {
-  console.log("API key", process.env.REACT_APP_EXERCISE_API_KEY);
-  console.log("API host", process.env.REACT_APP_HOST);
-  return <Home />;
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/details/:id" element={<Detail />} />
+    </Routes>
+  );
 }
 
 export default App;

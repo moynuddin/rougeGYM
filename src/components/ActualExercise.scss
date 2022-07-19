@@ -1,0 +1,37 @@
+.thumbnail {
+  & .similar-exercise {
+    font-size: 20px;
+    text-align: center;
+
+    @media (min-width: 769px) {
+      font-size: 40px;
+    }
+    & span {
+      color: red;
+      font-weight: 600;
+    }
+  }
+
+  .video-wrapper {
+    margin: 13px;
+    filter: drop-shadow(2px 4px 6px #928b8b);
+    transition: 0.5s ease-out;
+    position: relative;
+    & img {
+      width: 350px;
+      height: 250px;
+    }
+    &:hover {
+      transform: scale(1.1);
+      filter: opacity(0.5);
+    }
+    & .youtube-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 50px;
+      color: red;
+    }
+  }
+}
